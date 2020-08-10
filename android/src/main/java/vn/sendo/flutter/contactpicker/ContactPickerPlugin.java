@@ -80,7 +80,12 @@ public class ContactPickerPlugin implements MethodCallHandler, PluginRegistry.Ac
     }
 
     if (resultCode != RESULT_OK) {
-      pendingResult.success(null);
+      try {
+        pendingResult.success(null);
+      } catch (Exception ex) {
+        exception.printStackTrace();
+      }
+      
       pendingResult = null;
       return true;
     }
@@ -102,7 +107,12 @@ public class ContactPickerPlugin implements MethodCallHandler, PluginRegistry.Ac
       pendingResult.success(contact);
     } catch (Exception exception) {
       exception.printStackTrace();
-      pendingResult.success(null);
+
+      try {
+        pendingResult.success(null);
+      } catch (Exception ex) {
+        exception.printStackTrace();
+      }
     }
 
     pendingResult = null;
