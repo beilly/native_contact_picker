@@ -83,7 +83,7 @@ public class ContactPickerPlugin implements MethodCallHandler, PluginRegistry.Ac
       try {
         pendingResult.success(null);
       } catch (Exception ex) {
-        exception.printStackTrace();
+        ex.printStackTrace();
       }
       
       pendingResult = null;
